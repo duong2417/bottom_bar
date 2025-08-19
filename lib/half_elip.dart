@@ -37,10 +37,9 @@ class HalfEllipsePainter extends CustomPainter {
     // Shadow paint
     var shadowPaint =
         Paint()
-          ..color = Colors.black.withOpacity(1)
+          ..color = Colors.black.withOpacity(0.5)
           ..style = PaintingStyle.fill
-          // ..maskFilter = MaskFilter.blur(BlurStyle.normal, 6.0)
-          ..strokeWidth = 3;
+          ..maskFilter = MaskFilter.blur(BlurStyle.normal, 6.0);
 
     // Assuming the original path is designed based on a certain viewbox,
     // Calculate the translation needed to center the path
