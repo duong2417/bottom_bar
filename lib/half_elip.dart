@@ -58,27 +58,30 @@ class HalfEllipsePainter extends CustomPainter {
       165.39 + offsetX + shadowOffsetX,
       17.33 + offsetY + shadowOffsetY,
     );
+    // shadowPath1.cubicTo(//line trái dưới (ngang)
+    //   160.925 + offsetX + shadowOffsetX,
+    //   24.3965 + offsetY + shadowOffsetY,
+    //   167.55 + offsetX + shadowOffsetX,
+    //   32 + offsetY + shadowOffsetY,
+    //   175.909 + offsetX + shadowOffsetX,
+    //   32 + offsetY + shadowOffsetY,
+    // );
+    // shadowPath1.lineTo(//line phải dưới (ngang)
+    //   214.091 + offsetX + shadowOffsetX,
+    //   32 + offsetY + shadowOffsetY,
+    // );
     shadowPath1.cubicTo(
-      160.925 + offsetX + shadowOffsetX,
-      24.3965 + offsetY + shadowOffsetY,
-      167.55 + offsetX + shadowOffsetX,
-      32 + offsetY + shadowOffsetY,
-      175.909 + offsetX + shadowOffsetX,
-      32 + offsetY + shadowOffsetY,
-    );
-    shadowPath1.lineTo(
-      214.091 + offsetX + shadowOffsetX,
-      32 + offsetY + shadowOffsetY,
-    );
-    shadowPath1.cubicTo(
+      //elip phải, bao gồm cả line
       222.45 + offsetX + shadowOffsetX,
       32 + offsetY + shadowOffsetY,
       229.075 + offsetX + shadowOffsetX,
-      24.3965 + offsetY + shadowOffsetY,
+      // 24.3965 + offsetY + shadowOffsetY,
+      0, //bỏ line phải dưới
       224.61 + offsetX + shadowOffsetX,
       17.33 + offsetY + shadowOffsetY,
     );
     shadowPath1.cubicTo(
+      //all
       218.41 + offsetX + shadowOffsetX,
       7.5171 + offsetY + shadowOffsetY,
       207.466 + offsetX + shadowOffsetX,
@@ -87,6 +90,7 @@ class HalfEllipsePainter extends CustomPainter {
       1 + offsetY + shadowOffsetY,
     );
     shadowPath1.cubicTo(
+      //elip trái nửa trên
       182.534 + offsetX + shadowOffsetX,
       1 + offsetY + shadowOffsetY,
       171.59 + offsetX + shadowOffsetX,
@@ -151,7 +155,7 @@ class HalfEllipsePainter extends CustomPainter {
     shadowPath2.close();
 
     // Draw shadows first
-    canvas.drawPath(shadowPath2, shadowPaint);
+    canvas.drawPath(shadowPath1, shadowPaint);
     // canvas.drawPath(shadowPath1, shadowPaint);
 
     // Draw shadows first
