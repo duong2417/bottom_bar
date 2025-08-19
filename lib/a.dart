@@ -49,7 +49,7 @@ class _MyWidgetState extends State<MyWidget> {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.5),
+              color: Colors.black.withOpacity(0.4),
               spreadRadius: 0,
               blurRadius: 10,
               offset: Offset(0, -5),

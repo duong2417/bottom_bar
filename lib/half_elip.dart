@@ -17,7 +17,7 @@ class HalfElip extends StatelessWidget {
     //     painter: HalfEllipsePainter(),
     //   ),
     // ));
-    return CustomPaint(child: child, painter: HalfEllipsePainter());
+    return CustomPaint(painter: HalfEllipsePainter(), child: child);
   }
 }
 
@@ -37,9 +37,10 @@ class HalfEllipsePainter extends CustomPainter {
     // Shadow paint
     var shadowPaint =
         Paint()
-          ..color = Colors.black
-          ..style = PaintingStyle.fill
-          ..maskFilter = MaskFilter.blur(BlurStyle.normal, 8.0);
+          ..color = Colors.black.withOpacity(0.5)
+          ..style = PaintingStyle.stroke
+          ..maskFilter = MaskFilter.blur(BlurStyle.normal, 6.0)
+          ..strokeWidth = 3;
 
     // Assuming the original path is designed based on a certain viewbox,
     // Calculate the translation needed to center the path
@@ -50,34 +51,43 @@ class HalfEllipsePainter extends CustomPainter {
 
     // Shadow offset
     double shadowOffsetX = 0;
-    double shadowOffsetY = 4;
+    double shadowOffsetY = -3; //càng giảm càng lên cao//4//-3
 
     // Create simple shadow path that follows the upper half of ellipse
     var shadowPath1 = Path();
 
     // Bắt đầu từ điểm trái của ellipse
     shadowPath1.moveTo(
-      165.39 + offsetX + shadowOffsetX,
-      17.33 + offsetY + shadowOffsetY,
+      165.39 + offsetX + shadowOffsetX - 12, //càng giảm càng sang trái
+      17.33 + offsetY + shadowOffsetY + 15, //càng tăng càng đi xuống
     );
 
     // Vẽ đường cong nửa trên của ellipse (shadow)
     shadowPath1.cubicTo(
-      171.59 + offsetX + shadowOffsetX,
-      7.5171 + offsetY + shadowOffsetY,
+      //elip trái
+      171.59 + offsetX + shadowOffsetX, //càng giảm càng qua trái
+      7.5171 +
+          offsetY +
+          shadowOffsetY, //càng tăng càng đi xuống (qua mặt phẳng bên kia luôn)//ko phải điểm rìa
       182.534 + offsetX + shadowOffsetX,
       1 + offsetY + shadowOffsetY,
       195 + offsetX + shadowOffsetX,
-      1 + offsetY + shadowOffsetY,
+      1 + offsetY + shadowOffsetY, //point giữa (đỉnh)
     );
 
     shadowPath1.cubicTo(
+      //elip phải
       207.466 + offsetX + shadowOffsetX,
       1 + offsetY + shadowOffsetY,
       218.41 + offsetX + shadowOffsetX,
-      7.5171 + offsetY + shadowOffsetY,
-      224.61 + offsetX + shadowOffsetX,
-      17.33 + offsetY + shadowOffsetY,
+      7.5171 +
+          offsetY +
+          shadowOffsetY, //vòng nửa phải dưới//càng tăng càng đi xuống
+      224.61 + offsetX + shadowOffsetX + 12, //càng tăng càng qua phải
+      17.33 +
+          offsetY +
+          shadowOffsetY +
+          15, //càng tăng càng xuống phải (làm hiện line ngang)//point rìa
     );
 
     // Draw shadows first
