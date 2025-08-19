@@ -37,7 +37,7 @@ class HalfEllipsePainter extends CustomPainter {
     // Shadow paint
     var shadowPaint =
         Paint()
-          ..color = Colors.black.withOpacity(1)
+          ..color = Colors.black
           ..style = PaintingStyle.fill
           ..maskFilter = MaskFilter.blur(BlurStyle.normal, 8.0);
 
@@ -52,115 +52,36 @@ class HalfEllipsePainter extends CustomPainter {
     double shadowOffsetX = 0;
     double shadowOffsetY = 4;
 
-    // Create shadow paths (slightly offset)
+    // Create simple shadow path that follows the upper half of ellipse
     var shadowPath1 = Path();
+
+    // Bắt đầu từ điểm trái của ellipse
     shadowPath1.moveTo(
       165.39 + offsetX + shadowOffsetX,
       17.33 + offsetY + shadowOffsetY,
     );
-    // shadowPath1.cubicTo(//line trái dưới (ngang)
-    //   160.925 + offsetX + shadowOffsetX,
-    //   24.3965 + offsetY + shadowOffsetY,
-    //   167.55 + offsetX + shadowOffsetX,
-    //   32 + offsetY + shadowOffsetY,
-    //   175.909 + offsetX + shadowOffsetX,
-    //   32 + offsetY + shadowOffsetY,
-    // );
-    // shadowPath1.lineTo(//line phải dưới (ngang)
-    //   214.091 + offsetX + shadowOffsetX,
-    //   32 + offsetY + shadowOffsetY,
-    // );
+
+    // Vẽ đường cong nửa trên của ellipse (shadow)
     shadowPath1.cubicTo(
-      //elip phải, bao gồm cả line
-      222.45 + offsetX + shadowOffsetX,
-      32 + offsetY + shadowOffsetY,
-      229.075 + offsetX + shadowOffsetX,
-      // 24.3965 + offsetY + shadowOffsetY,
-      0, //bỏ line phải dưới
+      171.59 + offsetX + shadowOffsetX,
+      7.5171 + offsetY + shadowOffsetY,
+      182.534 + offsetX + shadowOffsetX,
+      1 + offsetY + shadowOffsetY,
+      195 + offsetX + shadowOffsetX,
+      1 + offsetY + shadowOffsetY,
+    );
+
+    shadowPath1.cubicTo(
+      207.466 + offsetX + shadowOffsetX,
+      1 + offsetY + shadowOffsetY,
+      218.41 + offsetX + shadowOffsetX,
+      7.5171 + offsetY + shadowOffsetY,
       224.61 + offsetX + shadowOffsetX,
       17.33 + offsetY + shadowOffsetY,
     );
-    shadowPath1.cubicTo(
-      //all
-      218.41 + offsetX + shadowOffsetX,
-      7.5171 + offsetY + shadowOffsetY,
-      207.466 + offsetX + shadowOffsetX,
-      1 + offsetY + shadowOffsetY,
-      195 + offsetX + shadowOffsetX,
-      1 + offsetY + shadowOffsetY,
-    );
-    shadowPath1.cubicTo(
-      //elip trái nửa trên
-      182.534 + offsetX + shadowOffsetX,
-      1 + offsetY + shadowOffsetY,
-      171.59 + offsetX + shadowOffsetX,
-      7.5171 + offsetY + shadowOffsetY,
-      165.39 + offsetX + shadowOffsetX,
-      17.33 + offsetY + shadowOffsetY,
-    );
-    shadowPath1.close();
-
-    var shadowPath2 = Path();
-    shadowPath2.moveTo(
-      162.728 + offsetX + shadowOffsetX,
-      20.0282 + offsetY + shadowOffsetY,
-    );
-    // shadowPath2.cubicTo(//cạnh trái dưới (ngang)
-    //   159.558 + offsetX + shadowOffsetX,
-    //   26.422 + offsetY + shadowOffsetY,
-    //   153.819 + offsetX + shadowOffsetX,
-    //   32 + offsetY + shadowOffsetY,
-    //   146.682 + offsetX + shadowOffsetX,
-    //   32 + offsetY + shadowOffsetY,
-    // );
-    // shadowPath2.lineTo(
-    //   -9 + offsetX + shadowOffsetX,
-    //   32 + offsetY + shadowOffsetY,
-    // );
-    // shadowPath2.lineTo(
-    //   378 + offsetX + shadowOffsetX,
-    //   32 + offsetY + shadowOffsetY,
-    // );
-    // shadowPath2.lineTo(
-    //   243.318 + offsetX + shadowOffsetX,
-    //   32 + offsetY + shadowOffsetY,
-    // );
-    shadowPath2.cubicTo(
-      //vòng elip bên phải
-      236.181 + offsetX + shadowOffsetX,
-      32 + offsetY + shadowOffsetY,
-      230.442 + offsetX + shadowOffsetX,
-      26.422 + offsetY + shadowOffsetY,
-      227.272 + offsetX + shadowOffsetX,
-      20.0282 + offsetY + shadowOffsetY,
-    );
-    shadowPath2.cubicTo(
-      //vòng elip trái trên
-      221.387 + offsetX + shadowOffsetX,
-      8.15917 + offsetY + shadowOffsetY,
-      209.146 + offsetX + shadowOffsetX,
-      0 + offsetY + shadowOffsetY,
-      195 + offsetX + shadowOffsetX,
-      0 + offsetY + shadowOffsetY,
-    );
-    shadowPath2.cubicTo(
-      //vòng elip trái trên
-      180.854 + offsetX + shadowOffsetX,
-      0 + offsetY + shadowOffsetY,
-      168.613 + offsetX + shadowOffsetX,
-      8.15917 + offsetY + shadowOffsetY,
-      162.728 + offsetX + shadowOffsetX,
-      20.0282 + offsetY + shadowOffsetY,
-    );
-    shadowPath2.close();
 
     // Draw shadows first
     canvas.drawPath(shadowPath1, shadowPaint);
-    // canvas.drawPath(shadowPath1, shadowPaint);
-
-    // Draw shadows first
-    // canvas.drawPath(shadowPath2, shadowPaint);
-    // canvas.drawPath(shadowPath1, shadowPaint);
 
     var path1 = Path();
     path1.moveTo(165.39 + offsetX, 17.33 + offsetY);
