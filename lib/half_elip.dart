@@ -37,7 +37,7 @@ class HalfEllipsePainter extends CustomPainter {
     // Shadow paint
     var shadowPaint =
         Paint()
-          ..color = Colors.black.withOpacity(0.2)
+          ..color = Colors.black.withOpacity(1)
           ..style = PaintingStyle.fill
           ..maskFilter = MaskFilter.blur(BlurStyle.normal, 8.0);
 
@@ -101,27 +101,28 @@ class HalfEllipsePainter extends CustomPainter {
       162.728 + offsetX + shadowOffsetX,
       20.0282 + offsetY + shadowOffsetY,
     );
+    // shadowPath2.cubicTo(//cạnh trái dưới (ngang)
+    //   159.558 + offsetX + shadowOffsetX,
+    //   26.422 + offsetY + shadowOffsetY,
+    //   153.819 + offsetX + shadowOffsetX,
+    //   32 + offsetY + shadowOffsetY,
+    //   146.682 + offsetX + shadowOffsetX,
+    //   32 + offsetY + shadowOffsetY,
+    // );
+    // shadowPath2.lineTo(
+    //   -9 + offsetX + shadowOffsetX,
+    //   32 + offsetY + shadowOffsetY,
+    // );
+    // shadowPath2.lineTo(
+    //   378 + offsetX + shadowOffsetX,
+    //   32 + offsetY + shadowOffsetY,
+    // );
+    // shadowPath2.lineTo(
+    //   243.318 + offsetX + shadowOffsetX,
+    //   32 + offsetY + shadowOffsetY,
+    // );
     shadowPath2.cubicTo(
-      159.558 + offsetX + shadowOffsetX,
-      26.422 + offsetY + shadowOffsetY,
-      153.819 + offsetX + shadowOffsetX,
-      32 + offsetY + shadowOffsetY,
-      146.682 + offsetX + shadowOffsetX,
-      32 + offsetY + shadowOffsetY,
-    );
-    shadowPath2.lineTo(
-      -9 + offsetX + shadowOffsetX,
-      32 + offsetY + shadowOffsetY,
-    );
-    shadowPath2.lineTo(
-      378 + offsetX + shadowOffsetX,
-      32 + offsetY + shadowOffsetY,
-    );
-    shadowPath2.lineTo(
-      243.318 + offsetX + shadowOffsetX,
-      32 + offsetY + shadowOffsetY,
-    );
-    shadowPath2.cubicTo(
+      //vòng elip bên phải
       236.181 + offsetX + shadowOffsetX,
       32 + offsetY + shadowOffsetY,
       230.442 + offsetX + shadowOffsetX,
@@ -130,6 +131,7 @@ class HalfEllipsePainter extends CustomPainter {
       20.0282 + offsetY + shadowOffsetY,
     );
     shadowPath2.cubicTo(
+      //vòng elip trái trên
       221.387 + offsetX + shadowOffsetX,
       8.15917 + offsetY + shadowOffsetY,
       209.146 + offsetX + shadowOffsetX,
@@ -138,6 +140,7 @@ class HalfEllipsePainter extends CustomPainter {
       0 + offsetY + shadowOffsetY,
     );
     shadowPath2.cubicTo(
+      //vòng elip trái trên
       180.854 + offsetX + shadowOffsetX,
       0 + offsetY + shadowOffsetY,
       168.613 + offsetX + shadowOffsetX,
@@ -149,11 +152,11 @@ class HalfEllipsePainter extends CustomPainter {
 
     // Draw shadows first
     canvas.drawPath(shadowPath2, shadowPaint);
-    canvas.drawPath(shadowPath1, shadowPaint);
+    // canvas.drawPath(shadowPath1, shadowPaint);
 
     // Draw shadows first
-    canvas.drawPath(shadowPath2, shadowPaint);
-    canvas.drawPath(shadowPath1, shadowPaint);
+    // canvas.drawPath(shadowPath2, shadowPaint);
+    // canvas.drawPath(shadowPath1, shadowPaint);
 
     var path1 = Path();
     path1.moveTo(165.39 + offsetX, 17.33 + offsetY);

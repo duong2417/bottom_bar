@@ -11,35 +11,21 @@ class CustomFloatingButton extends StatelessWidget {
     return HalfElip(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4.0),
-        child: Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.2),
-                blurRadius: 10,
-                spreadRadius: 2,
-                offset: Offset(0, 4),
-              ),
-            ],
-          ),
-          child: FloatingActionButton(
-            materialTapTargetSize: MaterialTapTargetSize.values[0],
-            shape: CircleBorder(),
-            backgroundColor: HomeBottomBarStyle.pink,
-            elevation: 0, // Tắt shadow mặc định của FloatingActionButton
-            // child: SvgPicture.asset(
-            //   SvgPath.editIcon,
-            //   // colorFilter: ColorFilter.mode(
-            //   //   selected == false ? HomeBottomBarStyle.red : Colors.white,
-            //   //   BlendMode.srcIn, //mode pha trộn
-            //   // )
-            // ),
-            onPressed: onPressed,
-            child: Icon(
-              Icons.edit, // Placeholder for the actual SVG icon
-              color: selected ? Colors.white : HomeBottomBarStyle.grey,
-            ),
+        child: FloatingActionButton(
+          materialTapTargetSize: MaterialTapTargetSize.values[0],
+          shape: CircleBorder(),
+          backgroundColor: HomeBottomBarStyle.pink,
+          // child: SvgPicture.asset(
+          //   SvgPath.editIcon,
+          //   // colorFilter: ColorFilter.mode(
+          //   //   selected == false ? HomeBottomBarStyle.red : Colors.white,
+          //   //   BlendMode.srcIn, //mode pha trộn
+          //   // )
+          // ),
+          onPressed: onPressed,
+          child: Icon(
+            Icons.edit, // Placeholder for the actual SVG icon
+            color: selected ? Colors.white : HomeBottomBarStyle.grey,
           ),
         ),
       ),
