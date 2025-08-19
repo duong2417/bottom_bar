@@ -45,51 +45,63 @@ class _MyWidgetState extends State<MyWidget> {
     return Scaffold(
       floatingActionButton: CustomFloatingButton(onPressed: () {}),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomNavigationBar(
-        // landscapeLayout: BottomNavigationBarLandscape  Layout.linear,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: CustomSvgBarItem(
-              assetName: "SvgPath.house_icon",
-              selected: _selectedIndex == _label.indexOf('Trang chủ'),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.5),
+              spreadRadius: 0,
+              blurRadius: 10,
+              offset: Offset(0, -5),
             ),
-            label: 'Trang chủ',
-          ),
-          BottomNavigationBarItem(
-            icon: CustomSvgBarItem(
-              assetName: "SvgPath.search_icon",
-              selected: _selectedIndex == _label.indexOf('Tìm kiếm'),
+          ],
+        ),
+        child: BottomNavigationBar(
+          // landscapeLayout: BottomNavigationBarLandscape  Layout.linear,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: CustomSvgBarItem(
+                assetName: "SvgPath.house_icon",
+                selected: _selectedIndex == _label.indexOf('Trang chủ'),
+              ),
+              label: 'Trang chủ',
             ),
-            label: 'Tìm kiếm',
-          ),
-          BottomNavigationBarItem(
-            icon: SizedBox(height: 22),
-            label: 'Đăng bài',
-          ),
-          BottomNavigationBarItem(
-            icon: CustomSvgBarItem(
-              assetName: "SvgPath.post_icon",
-              selected: _selectedIndex == _label.indexOf('Bài viết'),
+            BottomNavigationBarItem(
+              icon: CustomSvgBarItem(
+                assetName: "SvgPath.search_icon",
+                selected: _selectedIndex == _label.indexOf('Tìm kiếm'),
+              ),
+              label: 'Tìm kiếm',
             ),
-            label: 'Bài viết',
-          ),
-          BottomNavigationBarItem(
-            icon: CustomSvgBarItem(
-              assetName: "SvgPath.user_icon",
-              selected: _selectedIndex == _label.indexOf('Tài khoản'),
+            BottomNavigationBarItem(
+              icon: SizedBox(height: 22),
+              label: 'Đăng bài',
             ),
-            label: 'Tài khoản',
-          ),
-        ],
-        // selectedLabelStyle: HomeBottomBarStyle.selectedLabel,
-        backgroundColor: Color(0xffF0F0F0),
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
-        currentIndex: _selectedIndex,
-        // selectedItemColor: HomeBottomBarStyle.red, //for label
-        // unselectedItemColor: HomeBottomBarStyle.grey,
-        onTap: _onItemTapped,
-        type: BottomNavigationBarType.fixed,
+            BottomNavigationBarItem(
+              icon: CustomSvgBarItem(
+                assetName: "SvgPath.post_icon",
+                selected: _selectedIndex == _label.indexOf('Bài viết'),
+              ),
+              label: 'Bài viết',
+            ),
+            BottomNavigationBarItem(
+              icon: CustomSvgBarItem(
+                assetName: "SvgPath.user_icon",
+                selected: _selectedIndex == _label.indexOf('Tài khoản'),
+              ),
+              label: 'Tài khoản',
+            ),
+          ],
+          // selectedLabelStyle: HomeBottomBarStyle.selectedLabel,
+          backgroundColor: Color(0xffF0F0F0),
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
+          currentIndex: _selectedIndex,
+          // selectedItemColor: HomeBottomBarStyle.red, //for label
+          // unselectedItemColor: HomeBottomBarStyle.grey,
+          onTap: _onItemTapped,
+          type: BottomNavigationBarType.fixed,
+        ),
       ),
       appBar: AppBar(title: Text('My Widget')),
       body: Center(child: Text('Hello, World!')),
