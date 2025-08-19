@@ -37,9 +37,9 @@ class HalfEllipsePainter extends CustomPainter {
     // Shadow paint
     var shadowPaint =
         Paint()
-          ..color = Colors.black.withOpacity(0.5)
-          ..style = PaintingStyle.stroke
-          ..maskFilter = MaskFilter.blur(BlurStyle.normal, 6.0)
+          ..color = Colors.black.withOpacity(1)
+          ..style = PaintingStyle.fill
+          // ..maskFilter = MaskFilter.blur(BlurStyle.normal, 6.0)
           ..strokeWidth = 3;
 
     // Assuming the original path is designed based on a certain viewbox,
@@ -51,7 +51,7 @@ class HalfEllipsePainter extends CustomPainter {
 
     // Shadow offset
     double shadowOffsetX = 0;
-    double shadowOffsetY = -3; //càng giảm càng lên cao//4//-3
+    double shadowOffsetY = -40; //càng giảm càng lên cao//4//-3
 
     // Create simple shadow path that follows the upper half of ellipse
     var shadowPath1 = Path();
