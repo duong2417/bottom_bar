@@ -51,7 +51,7 @@ class HalfEllipsePainter extends CustomPainter {
 
     // Shadow offset
     double shadowOffsetX = 0;
-    double shadowOffsetY = -40; //càng giảm càng lên cao//4//-3
+    double shadowOffsetY = -3; //càng giảm càng lên cao//4//-3
 
     // Create simple shadow path that follows the upper half of ellipse
     var shadowPath1 = Path();
